@@ -2,6 +2,7 @@
 
 import React from "react";
 import { BsList } from "react-icons/bs";
+import { Link } from "react-router-dom";
 const menuItems = [
   // {
   //   name: "Home",
@@ -12,8 +13,9 @@ const menuItems = [
   //   href: "#",
   // },
   {
-    name: "Contact",
-    href: "#",
+    name: "age",
+    path: "/age",
+    // href: "#",
   },
 ];
 
@@ -49,12 +51,12 @@ export function Navbar() {
             <ul className="inline-flex space-x-8">
               {menuItems.map((item) => (
                 <li key={item.name}>
-                  <a
-                    href={item.href}
+                  <Link
+                    to={item.path}
                     className="text-sm font-semibold text-gray-800 hover:text-gray-900"
                   >
                     {item.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -97,16 +99,16 @@ export function Navbar() {
                   </div>
                   <div className="mt-6">
                     <nav className="grid gap-y-4">
-                      {menuItems.map((item) => (
-                        <a
-                          key={item.name}
-                          href={item.href}
+                      {menuItems.map((item, index) => (
+                        <Link
+                          to={item?.path}
+                          key={index}
                           className="-m-3 flex items-center rounded-md p-3 text-sm font-semibold hover:bg-gray-50"
                         >
                           <span className="ml-3 text-base font-medium text-gray-900">
                             {item.name}
                           </span>
-                        </a>
+                        </Link>
                       ))}
                     </nav>
                   </div>
